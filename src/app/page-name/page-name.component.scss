@@ -1,0 +1,23 @@
+@import "./src/style/variables";
+@import "./src/style/mixin";
+
+.page-name {
+  position: relative;
+  padding-left: 45px;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 27px;
+  @include fontStyle(38px, 700, $primaryColor);
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 27px;
+    height: 30px;
+    transform: translateY(-50%);
+    background: url("../../assets/img/icon-planning.svg") no-repeat 50% 50%;
+  }
+}
+

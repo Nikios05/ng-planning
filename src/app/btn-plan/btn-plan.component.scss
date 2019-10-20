@@ -1,0 +1,23 @@
+@import "../../style/variables";
+@import "../../style/mixin";
+
+.btn-plan {
+  position: relative;
+  width: 160px;
+  height: 40px;
+  padding-left: 25px;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    width: 2px;
+    height: 11px;
+    background: $specialColor;
+  }
+
+  &:after {
+    transform: rotate(90deg);
+  }
+}

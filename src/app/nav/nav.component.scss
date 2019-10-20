@@ -1,0 +1,18 @@
+@import "./src/style/variables";
+
+.main-nav__toggle {
+  display: flex;
+  align-items: center;
+  width: 18px;
+  height: 12px;
+  background-image:
+    linear-gradient($secondaryColor 2px, transparent 2px,
+                    transparent 5px, $secondaryColor 5px,
+                    $secondaryColor 7px, transparent 7px,
+                    transparent 10px, $secondaryColor 10px);
+  font-size: 0;
+}
+
+.site-list {
+  display: none;
+}

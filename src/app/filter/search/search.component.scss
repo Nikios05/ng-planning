@@ -1,0 +1,46 @@
+@import "./src/style/variables";
+@import "./src/style/mixin";
+
+
+.filter__search-label {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    transform: translateY(25%);
+    opacity: 0.38;
+    background: url("../../../assets/img/icon-search.svg") no-repeat 50% 50%;
+  }
+}
+
+.filter__search {
+  padding-left: 35px;
+  padding-right: 15px;
+  padding-bottom: 2px;
+  width: 166px;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid $lineColor;
+  transition: border 0.1s ease-out;
+  @include fontStyle(12px, 500, $primaryColor);
+  outline: none;
+
+  &::placeholder {
+    @include fontStyle(12px, 500, $placeholderColor);
+  }
+
+  &:hover {
+    border-bottom-color: $placeholderColor;
+  }
+
+  &:active,
+  &:focus {
+    border-bottom: 2px solid $specialColor;
+  }
+}
+

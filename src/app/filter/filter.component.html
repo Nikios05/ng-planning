@@ -1,0 +1,15 @@
+<form class="filter" action="GET">
+  <div class="filter__wrapper">
+    <app-search class="filter__item"></app-search>
+    <app-select class="filter__item"
+                *ngFor="let filter of filterList" [filter]="filter"
+    ></app-select>
+  </div>
+  <div class="filter__wrapper">
+    <p class="filter__active">34 сессии</p>
+    <button class="btn btn--blue filter__settings" type="button">Настроить фильтр</button>
+    <button class="btn btn--gray filter__discard" type="button">Сбросить</button>
+    <button class="btn btn--blue filter__apply-btn" type="submit">Применить</button>
+  </div>
+</form>
+

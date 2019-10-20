@@ -1,0 +1,99 @@
+@import "./src/style/variables";
+@import "./src/style/mixin";
+
+.filter {
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 48px;
+}
+
+.filter__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.filter__item:first-child {
+  align-self: flex-end;
+}
+
+.filter__item:not(:first-child) {
+  margin-left: 30px;
+}
+
+.filter__active {
+  margin-right: 75px;
+  @include fontStyle(12px, 500, $secondaryColor);
+}
+
+.filter__settings {
+  position: relative;
+  width: 180px;
+  height: 36px;
+  padding-left: 25px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    width: 14px;
+    height: 14px;
+
+    background: url("../../assets/img/icon-filter-settings.svg") no-repeat 50% 50%;
+  }
+
+}
+
+.filter__discard {
+  position: relative;
+  width: 125px;
+  height: 36px;
+  padding-left: 25px;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    width: 2px;
+    height: 11px;
+    transform: rotate(45deg);
+    background: $secondaryColor;
+  }
+
+  &:after {
+    transform: rotate(135deg);
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    &:before,
+    &:after {
+      background: $errorColor;
+    }
+  }
+}
+
+.filter__apply-btn {
+  position: relative;
+  padding-left: 20px;
+  margin-left: auto;
+  width: 136px;
+  height: 36px;
+  border: 2px solid $specialColor;
+
+  &:before {
+    content:"";
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    width: 11px;
+    height: 7px;
+    border-left: 2px solid $specialColor;
+    border-bottom: 2px solid $specialColor;
+    transform: rotate(-45deg);
+  }
+}

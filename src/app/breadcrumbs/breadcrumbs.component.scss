@@ -1,0 +1,30 @@
+@import "../../style/variables";
+@import "../../style/mixin";
+
+.breadcrumbs {
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 16px;
+}
+
+.breadcrumbs__item {
+  display: inline-flex;
+}
+
+.breadcrumbs__item {
+  @include fontStyle(12px, 500, $secondaryColor);
+
+  &:not(:first-child) {
+    position: relative;
+    margin-left: 10px;
+    padding-left: 25px;
+  }
+
+  &:not(:first-child)::before {
+    content: "—";
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: $secondaryColor;
+  }
+}
