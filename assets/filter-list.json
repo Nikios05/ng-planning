@@ -1,0 +1,33 @@
+[
+  {
+    "name": "program",
+    "active": true,
+    "title": "Программа",
+    "start": "Все",
+    "list": []
+  },
+
+  {
+    "name": "period",
+    "active": true,
+    "title": "Период",
+    "start": "Июнь 2019",
+    "list": []
+  },
+
+  {
+    "name": "status",
+    "active": true,
+    "title": "Статус",
+    "start": "Все",
+    "list": []
+  },
+
+  {
+    "name": "category",
+    "active": false,
+    "title": "Другая Категория",
+    "start": "Все",
+    "list": []
+  }
+]
