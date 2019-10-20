@@ -1,0 +1,36 @@
+@import "./src/style/variables";
+
+.btn {
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  border-radius: 24px;
+  outline: none;
+}
+
+.btn--blue {
+  color: $specialColor;
+
+  &:hover {
+    background-color: $specialColorHover;
+  }
+
+  &:focus {
+    background-color: $specialColorFocus;
+  }
+
+  &:active {
+    background-color: $specialColorPress;
+  }
+}
+
+.btn--gray {
+  color: $secondaryColor;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $errorColor;
+  }
+}
