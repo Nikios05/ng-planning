@@ -1,3 +1,6 @@
+@import "./src/style/variables";
+@import "./src/style/mixin";
+
 .header__wrapper {
   display: flex;
   align-items: center;
@@ -8,8 +11,35 @@
   padding: 12px 24px;
 }
 
+.header__main-title {
+  display: none;
+}
+
 .container {
   max-width: 1162px;
   margin: 0 auto;
 }
+
+@media (max-width: 960px) {
+  .header__wrapper {
+    padding: 12px 16px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .header__wrapper {
+    margin-bottom: 0;
+  }
+
+  .header__main-title {
+    display: inline-block;
+    @include fontStyle(14px, 700, $primaryColor)
+  }
+}
+
+
 

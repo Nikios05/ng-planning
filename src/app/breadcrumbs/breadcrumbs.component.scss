@@ -27,4 +27,21 @@
     left: 0;
     color: $secondaryColor;
   }
+
+  &--active {
+
+  }
+}
+
+@media (max-width: 960px) {
+  .breadcrumbs {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .breadcrumbs {
+    display: none;
+  }
 }

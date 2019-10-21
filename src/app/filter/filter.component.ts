@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import jsonFilterList from '../../assets/filter-list.json';
+import {SomeDataService} from '../some-data.service';
 
 export interface FilterList {
   name: string;
@@ -16,6 +17,7 @@ export interface FilterList {
 })
 export class FilterComponent implements OnInit {
   filterList: FilterList[];
+  sessionDeclension: string;
   getActiveFilter() {
     const activeFilter = [];
     jsonFilterList.forEach((item) => {
@@ -25,7 +27,7 @@ export class FilterComponent implements OnInit {
     });
     return activeFilter;
   }
-  constructor() {
+  constructor(private someSrv: SomeDataService) {
     this.filterList = this.getActiveFilter();
   }
 

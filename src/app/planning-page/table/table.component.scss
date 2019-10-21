@@ -62,9 +62,8 @@
   &:last-child {
     margin: 0;
     min-width: auto;
-    width: 36px;
+    min-width: 36px;
     height: 36px;
-
   }
 }
 
@@ -90,4 +89,35 @@
   }
 }
 
+.pl-table__row--progress {
+  position: relative;
+  padding-left: 20px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 14px;
+    height: 14px;
+
+    background: url("../../../assets/img/icon-process.svg") no-repeat 50% 50%;
+  }
+}
+
+@media (max-width: 960px) {
+  .pl-table li {
+    &:nth-child(4) {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .pl-table li {
+    &:last-child {
+      display: none;
+    }
+  }
+}
 

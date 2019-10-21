@@ -4,9 +4,11 @@
     <app-select class="filter__item"
                 *ngFor="let filter of filterList" [filter]="filter"
     ></app-select>
+    <app-select class="filter__item" [title]="'Сортировка'" [start]="'По прогрессу обучения'"
+    ></app-select>
   </div>
-  <div class="filter__wrapper">
-    <p class="filter__active">34 сессии</p>
+  <div class="filter__container">
+    <p class="filter__active">{{someSrv.tableListLength}} {{someSrv.getSessionDeclension()}}</p>
     <button class="btn btn--blue filter__settings" type="button">Настроить фильтр</button>
     <button class="btn btn--gray filter__discard" type="button">Сбросить</button>
     <button class="btn btn--blue filter__apply-btn" type="submit">Применить</button>

@@ -12,6 +12,7 @@ import { SearchComponent } from './filter/search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlanningPageComponent } from './planning-page/planning-page.component';
 import { TableComponent } from './planning-page/table/table.component';
+import {SomeDataService} from './some-data.service';
 
 
 
@@ -32,7 +33,9 @@ import { TableComponent } from './planning-page/table/table.component';
     BrowserModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+    SomeDataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

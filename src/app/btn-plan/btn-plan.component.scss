@@ -21,3 +21,17 @@
     transform: rotate(90deg);
   }
 }
+
+@media (max-width: 640px) {
+  .btn-plan {
+    width: 40px;
+
+    font-size: 0;
+    &:before,
+    &:after {
+      top: 13px;
+      left: 19px;
+      height: 14px;
+    }
+  }
+}

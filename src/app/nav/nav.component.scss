@@ -1,6 +1,7 @@
 @import "./src/style/variables";
 
 .main-nav__toggle {
+  position: relative;
   display: flex;
   align-items: center;
   width: 18px;
@@ -11,6 +12,44 @@
                     $secondaryColor 7px, transparent 7px,
                     transparent 10px, $secondaryColor 10px);
   font-size: 0;
+  outline: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-image:
+      linear-gradient(#ffffff 2px, transparent 2px,
+                      transparent 5px, #ffffff  5px,
+                      #ffffff  7px, transparent 7px,
+                      transparent 10px, #ffffff  10px);
+  }
+
+  &:after {
+    display: none;
+    content: "";
+    position: absolute;
+    top: -14px;
+    left: -11px;
+    width: 40px;
+    height: 40px;
+    background-color: $specialColor;
+    border-radius: 50%;
+    z-index: -100;
+  }
+
+  &:hover:after {
+    display: block;
+  }
+
+  &:focus:after {
+    display: block;
+    background-color: #0E63E0;
+  }
+
+  &:active:after {
+    display: block;
+    background-color: #0D5FD6;
+  }
 }
 
 .site-list {

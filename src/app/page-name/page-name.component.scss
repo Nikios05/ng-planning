@@ -21,3 +21,15 @@
   }
 }
 
+@media (max-width: 960px) {
+  .page-name {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-name {
+    display: none;
+  }
+}
