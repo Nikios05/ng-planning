@@ -13,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlanningPageComponent } from './planning-page/planning-page.component';
 import { TableComponent } from './planning-page/table/table.component';
 import {SomeDataService} from './some-data.service';
+import { ModalComponent } from './modal/modal.component';
+import { TabsComponent } from './tabs/tabs.component';
 
 
 
@@ -28,6 +30,8 @@ import {SomeDataService} from './some-data.service';
     SearchComponent,
     PlanningPageComponent,
     TableComponent,
+    ModalComponent,
+    TabsComponent,
   ],
   imports: [
     BrowserModule,

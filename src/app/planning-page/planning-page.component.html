@@ -1,10 +1,5 @@
-<div class="main-wrapper">
-  <ul class="pl-tabs">
-    <li class="pl-tabs__item pl-tabs__item--active">Групповое</li>
-    <li class="pl-tabs__item">Индивидуальное</li>
-  </ul>
-</div>
-
+<app-tabs [tab1] = "'Групповое'" [tab2]="'Индивидуальное'"
+></app-tabs>
 <section class="pl-wrapper">
   <app-filter></app-filter>
   <app-table></app-table>

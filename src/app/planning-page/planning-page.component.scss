@@ -6,59 +6,8 @@
   margin: 0 auto;
 }
 
-.main-wrapper {
-  max-width: 1162px;
-  margin: 0 auto;
-}
-
-.pl-tabs {
-  display: flex;
-  margin-left: 8px;
-  margin-right: 8px;
-  margin-bottom: 35px;
-  border-bottom: 1px solid $lineColor;
-}
-
-.pl-tabs__item {
-  display: flex;
-  align-items: center;
-  min-height: 36px;
-  @include fontStyle(12px, 500, $secondaryColor);
-  cursor: pointer;
-
-  &--active {
-    position: relative;
-    color: $primaryColor;
-
-    &:before {
-      content: "";
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      border-radius: 2px;
-      background-color: $specialColor;
-    }
-  }
-}
-
-.pl-tabs__item + .pl-tabs__item {
-  margin-left: 24px;
-}
-
 @media (max-width: 960px) {
-  .pl-tabs {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .pl-tabs__item:first-child {
-    margin-left: 16px;
-  }
-
   .pl-wrapper {
     padding: 0 16px;
   }
-
 }
