@@ -15,8 +15,7 @@ import { TableComponent } from './planning-page/table/table.component';
 import {SomeDataService} from './some-data.service';
 import { ModalComponent } from './modal/modal.component';
 import { TabsComponent } from './tabs/tabs.component';
-
-
+import { EventComponent } from './event/event.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +31,7 @@ import { TabsComponent } from './tabs/tabs.component';
     TableComponent,
     ModalComponent,
     TabsComponent,
+    EventComponent,
   ],
   imports: [
     BrowserModule,

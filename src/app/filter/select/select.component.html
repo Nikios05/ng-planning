@@ -1,6 +1,8 @@
-<div class="select">
+<div class="select"
+     [ngClass]="{'modal-select__programs' : modalSelectProgram,
+                    'modal-select__event' : modalSelectEvent}">
   <p class="select__title">{{title}}</p>
-  <div class="select-styled">
+  <div class="select__styled">
     <p>{{start}}</p>
   </div>
 </div>

@@ -1,5 +1,8 @@
-.modal-overlay:before {
-  //display: none;
+@import "./src/style/variables";
+@import "./src/style/mixin";
+
+.modal-overlay {
+  display: none;
   content: "";
   position: fixed;
   top: 0;
@@ -9,16 +12,184 @@
   height: 100%;
 
   background-color: rgba(255, 255, 255, 0.94);
+  overflow: hidden;
+  animation: modal-overlay-open 0.7s ease-in-out forwards;
+}
+
+.modal-overlay--close {
+  animation: modal-overlay-close 0.7s ease-in-out forwards;
 }
 
 .modal {
-  //display: none;
+  display: none;
   position: absolute;
   top: 0;
   right: 0;
   width: 68vw;
   min-height: 940px;
   background-color: rgb(255, 255, 255);
-  border-left: 1px solid;
+  border-left: 1px solid $lineColor;
+  transform: translateX(68vw);
+  animation: modal-open 0.7s ease-in-out forwards;
 }
 
+.modal--close {
+  animation: modal-close 0.7s ease-in-out forwards;
+}
+
+.modal__wrapper {
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.modal__title {
+  padding: 24px 24px 20px;
+  @include fontStyle(18px, 700, $primaryColor);
+}
+
+.modal__subtitle {
+  margin-bottom: 26px;
+  @include fontStyle(14px, 700, $primaryColor);
+}
+
+.modal__condition {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__condition .condition__item:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.condition__controls {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+}
+
+.condition__controls button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 0;
+  outline: none;
+}
+
+.condition__accept-btn {
+  position: relative;
+  &:before {
+    content:"";
+    position: absolute;
+    top: 14px;
+    left: 13px;
+    width: 14px;
+    height: 8px;
+    border-left: 2px solid $specialColor;
+    border-bottom: 2px solid $specialColor;
+    transform: rotate(-45deg);
+  }
+
+  &:hover, &:focus {
+    background-color: $specialColor;
+
+    &:before {
+      border-left-color: #ffffff;
+      border-bottom-color: #ffffff;
+    }
+  }
+}
+
+.condition__close-btn {
+  position: relative;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 13px;
+    left: 19px;
+    width: 2px;
+    height: 14px;
+    transform: rotate(45deg);
+    background: $secondaryColor;
+  }
+
+  &:after {
+    transform: rotate(135deg);
+  }
+
+  &:hover, &:focus {
+    background-color: $errorColor;
+    &:before,
+    &:after {
+      background-color: #ffffff;
+    }
+  }
+}
+
+.condition__item {
+  position: relative;
+  padding: 5px 0;
+  padding-left: 36px;
+  @include fontStyle(12px, 500, $secondaryColor);
+
+  & label:before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 0;
+
+    width: 20px;
+    height: 20px;
+
+    background-image: radial-gradient(#F3F3F3, #F3F3F3);
+    border-radius: 50%;
+    transition: all 0.2s ease-in;
+  }
+}
+
+.condition__item input:checked {
+  & ~ label:before {
+    background-image: radial-gradient($specialColor 3px, #DDEAFF 3px);
+  }
+}
+
+@keyframes modal-open {
+  0% {
+    transform: translateX(68vw);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes modal-close {
+  100% {
+    transform: translateX(68vw);
+  }
+
+  0% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes modal-overlay-open {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+@keyframes modal-overlay-close {
+  100% {
+    opacity: 0;
+  }
+
+  0% {
+    opacity: 1;
+  }
+}

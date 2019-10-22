@@ -2,7 +2,7 @@
   <div class="header__wrapper">
     <app-nav></app-nav>
     <h1 class="header__main-title">Обучение</h1>
-    <app-btn-plan></app-btn-plan>
+    <app-btn-plan (click)="getModal()"></app-btn-plan>
   </div>
   <div class="container">
     <app-breadcrumbs></app-breadcrumbs>
@@ -12,6 +12,5 @@
 <main>
   <app-planning-page></app-planning-page>
 </main>
-<app-modal></app-modal>
-
+<app-modal [openModal]="this.openModalSrv.openThisModal"></app-modal>
 

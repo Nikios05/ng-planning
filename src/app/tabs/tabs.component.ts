@@ -8,6 +8,8 @@ import {Component, Input, OnInit} from '@angular/core';
 export class TabsComponent implements OnInit {
   @Input() tab1: string;
   @Input() tab2: string;
+  @Input() modalTabs = false;
+
   constructor() { }
 
   ngOnInit() {

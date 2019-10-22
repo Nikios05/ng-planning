@@ -11,6 +11,8 @@ export class SelectComponent implements OnInit {
   @Input() filter: FilterList;
   @Input() title: any;
   @Input() start: any;
+  @Input() modalSelectProgram = false;
+  @Input() modalSelectEvent = false;
 
   constructor() {
   }

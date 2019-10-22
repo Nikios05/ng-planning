@@ -1,0 +1,56 @@
+@import "./src/style/variables";
+@import "./src/style/mixin";
+
+.event__type {
+  margin-bottom: 4px;
+  @include fontStyle(10px, 500, $secondaryColor);
+}
+
+.event__title {
+  padding-bottom: 7px;
+  margin-bottom: 34px;
+  @include fontStyle(12px, 500, $placeholderColor);
+  border-bottom: 1px solid $lineColor;
+}
+
+.event__subtitle {
+  color: rgba(0, 0, 0, 0.22);
+}
+
+.event__select {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+
+  //Другого быстрого решения не нашел
+  & *:nth-child(1),
+  & *:nth-child(2),
+  & *:nth-child(3) {
+    position: relative;
+  }
+
+  & *:nth-child(1)::before,
+  & *:nth-child(2)::before,
+  & *:nth-child(3)::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 18px;
+
+    width: 16px;
+    height: 16px;
+  }
+
+  & *:nth-child(1)::before {
+    background: url("../../assets/img/icon-calendar.svg") no-repeat 50% 50%;
+  }
+
+  & *:nth-child(2)::before {
+    background: url("../../assets/img/icon-clock.svg") no-repeat 50% 50%;
+  }
+
+  & *:nth-child(3)::before {
+    background: url("../../assets/img/icon-avatar.svg") no-repeat 50% 50%;
+  }
+}
+

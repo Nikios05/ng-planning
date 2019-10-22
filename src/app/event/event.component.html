@@ -1,0 +1,12 @@
+<div class="event">
+  <h4 class="event__type">Мероприятие</h4>
+  <p class="event__title">{{title}} <small class="event__subtitle">Тренинг</small></p>
+  <div class="event__select">
+    <app-select [modalSelectEvent] = "true" [title]="selectEvent['title-date']" [start]="selectEvent['start-date']"
+    ></app-select>
+    <app-select [modalSelectEvent] = "true" [title]="selectEvent['title-time']" [start]="selectEvent['start-time']"
+    ></app-select>
+    <app-select [modalSelectEvent] = "true" [title]="selectEvent['title-couch']" [start]="selectEvent['start-couch']"
+    ></app-select>
+  </div>
+</div>

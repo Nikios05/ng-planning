@@ -1,6 +1,55 @@
-<div class="modal-overlay">
-  <div class="modal">
-    <app-tabs class="modal__tabs" [tab1] = "'Основное'" [tab2]="'Участники'"
+<div class="modal-overlay" [class.modal-overlay--close]="modalAnim" [style.display]="openModal==true?'block':'none'">
+  <div class="modal" [class.modal--close]="modalAnim" [style.display]="openModal==true?'block':'none'">
+    <h2 class="modal__title">Планироние</h2>
+    <app-tabs [modalTabs] = "true" [tab1] = "'Основное'" [tab2]="'Участники'"
     ></app-tabs>
+    <div class="modal__wrapper">
+      <form class="modal__condition condition" action="GET">
+        <div class="condition__controls">
+          <button class="condition__accept-btn" type="submit">Принять</button>
+          <button (click)="closeModal()" class="condition__close-btn" type="button">Закрыть</button>
+
+        </div>
+        <app-select [modalSelectProgram] = "true"
+                    [title]="'Программа'" [start]="'Страхование с заботой о клиенте'"
+        ></app-select>
+        <h3 class="modal__subtitle">Мероприятие, дата и время проведения</h3>
+        <app-event [selectEvent]="{
+                      'title-date': 'Дата', 'start-date': '28 ноября',
+                      'title-time': 'Время', 'start-time': '9:00',
+                      'title-couch': 'Тренер', 'start-couch': 'Сергей Ефремов'
+                    }"
+                   [title]="'Главные правила продажи'"></app-event>
+        <app-event [selectEvent]="{
+                      'title-date': ' ', 'start-date': 'Дата',
+                      'title-time': ' ', 'start-time': 'Время',
+                      'title-couch': ' ', 'start-couch': 'Тренер'
+                    }"
+                   [title]="'Страхование без потерь'"></app-event>
+        <app-event [selectEvent]="{
+                      'title-date': ' ', 'start-date': 'Дата',
+                      'title-time': ' ', 'start-time': 'Время',
+                      'title-couch': ' ', 'start-couch': 'Тренер'
+                    }"
+                   [title]="'Страховой случай или как помочь клиенту'"></app-event>
+        <h3 class="modal__subtitle">Условия записи по коду</h3>
+        <p class="condition__item">
+          <input class="visually-hidden" id="radio-noCode" type="radio" name="event-condition" value="radio-noCode" checked>
+          <label for="radio-noCode">Не использовать код доступа</label>
+        </p>
+        <p class="condition__item">
+          <input class="visually-hidden" id="radio-register" type="radio" name="event-condition" value="radio-register">
+          <label for="radio-register">Требовать регистрацию</label>
+        </p>
+        <p class="condition__item">
+          <input class="visually-hidden" id="radio-name" type="radio" name="event-condition" value="radio-name">
+          <label for="radio-name">Запросить только имя и фамилию</label>
+        </p>
+        <p class="condition__item">
+          <input class="visually-hidden" id="radio-noName" type="radio" name="event-condition" value="radio-noName">
+          <label for="radio-noName">Не требовать регистрацию, имя и фамилию</label>
+        </p>
+      </form>
+    </div>
   </div>
 </div>

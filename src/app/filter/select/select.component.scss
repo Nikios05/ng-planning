@@ -13,7 +13,7 @@
   @include fontStyle(10px, 500, $secondaryColor)
 }
 
-.select-styled {
+.select__styled {
   position: relative;
   display: flex;
   align-items: center;
@@ -51,5 +51,24 @@
     &:after {
       transform: translateY(3px) rotate(135deg);
     }
+  }
+}
+
+.select.modal-select__programs {
+  margin: 0;
+  margin-bottom: 52px;
+}
+
+.select.modal-select__event {
+  display: flex;
+  justify-content: flex-end;
+  width: 246px;
+  margin-bottom: 34px;
+  margin-left: 16px;
+  height: 41px;
+
+  & .select__title,
+  & .select__styled {
+    padding-left: 34px;
   }
 }
