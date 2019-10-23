@@ -54,3 +54,9 @@
   }
 }
 
+@media (max-width: 640px) {
+  .event__select {
+    justify-content: flex-start;
+  }
+}
+

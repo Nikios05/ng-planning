@@ -34,3 +34,53 @@
     color: $errorColor;
   }
 }
+
+.btn--settings {
+  position: relative;
+  min-width: 180px;
+  height: 36px;
+  padding-left: 25px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    width: 14px;
+    height: 14px;
+
+    background: url("../assets/img/icon-filter-settings.svg") no-repeat 50% 50%;
+  }
+
+}
+
+.btn--discard {
+  position: relative;
+  min-width: 125px;
+  height: 36px;
+  padding-left: 25px;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    width: 2px;
+    height: 11px;
+    transform: rotate(45deg);
+    background: $secondaryColor;
+  }
+
+  &:after {
+    transform: rotate(135deg);
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    &:before,
+    &:after {
+      background: $errorColor;
+    }
+  }
+}

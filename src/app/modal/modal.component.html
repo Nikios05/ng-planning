@@ -1,54 +1,90 @@
 <div class="modal-overlay" [class.modal-overlay--close]="modalAnim" [style.display]="openModal==true?'block':'none'">
   <div class="modal" [class.modal--close]="modalAnim" [style.display]="openModal==true?'block':'none'">
-    <h2 class="modal__title">Планироние</h2>
+    <h2 class="modal__title">Планирование</h2>
     <app-tabs [modalTabs] = "true" [tab1] = "'Основное'" [tab2]="'Участники'"
     ></app-tabs>
     <div class="modal__wrapper">
+      <div class="condition__controls">
+        <button class="condition__accept-btn" type="submit">Принять</button>
+        <button (click)="closeModal()" class="condition__close-btn" type="button">Закрыть</button>
+      </div>
       <form class="modal__condition condition" action="GET">
-        <div class="condition__controls">
-          <button class="condition__accept-btn" type="submit">Принять</button>
-          <button (click)="closeModal()" class="condition__close-btn" type="button">Закрыть</button>
-
+        <div [class.condition--open1]="!this.openModalSrv.openOtherTab" class="condition__first">
+          <app-select [modalSelectProgram] = "true"
+                      [title]="'Программа'" [start]="'Страхование с заботой о клиенте'"
+          ></app-select>
+          <h3 class="modal__subtitle">Мероприятие, дата и время проведения</h3>
+          <app-event [selectEvent]="{
+                        'title-date': 'Дата', 'start-date': '28 ноября',
+                        'title-time': 'Время', 'start-time': '9:00',
+                        'title-couch': 'Тренер', 'start-couch': 'Сергей Ефремов'
+                      }"
+                     [title]="'Главные правила продажи'"></app-event>
+          <app-event [selectEvent]="{
+                        'title-date': ' ', 'start-date': 'Дата',
+                        'title-time': ' ', 'start-time': 'Время',
+                        'title-couch': ' ', 'start-couch': 'Тренер'
+                      }"
+                     [title]="'Страхование без потерь'"></app-event>
+          <app-event [selectEvent]="{
+                        'title-date': ' ', 'start-date': 'Дата',
+                        'title-time': ' ', 'start-time': 'Время',
+                        'title-couch': ' ', 'start-couch': 'Тренер'
+                      }"
+                     [title]="'Страховой случай или как помочь клиенту'"></app-event>
+          <h3 class="modal__subtitle">Условия записи по коду</h3>
+          <p class="condition__item">
+            <input class="visually-hidden" id="radio-noCode" type="radio" name="event-condition" value="radio-noCode" checked>
+            <label for="radio-noCode">Не использовать код доступа</label>
+          </p>
+          <p class="condition__item">
+            <input class="visually-hidden" id="radio-register" type="radio" name="event-condition" value="radio-register">
+            <label for="radio-register">Требовать регистрацию</label>
+          </p>
+          <p class="condition__item">
+            <input class="visually-hidden" id="radio-name" type="radio" name="event-condition" value="radio-name">
+            <label for="radio-name">Запросить только имя и фамилию</label>
+          </p>
+          <p class="condition__item">
+            <input class="visually-hidden" id="radio-noName" type="radio" name="event-condition" value="radio-noName">
+            <label for="radio-noName">Не требовать регистрацию, имя и фамилию</label>
+          </p>
         </div>
-        <app-select [modalSelectProgram] = "true"
-                    [title]="'Программа'" [start]="'Страхование с заботой о клиенте'"
-        ></app-select>
-        <h3 class="modal__subtitle">Мероприятие, дата и время проведения</h3>
-        <app-event [selectEvent]="{
-                      'title-date': 'Дата', 'start-date': '28 ноября',
-                      'title-time': 'Время', 'start-time': '9:00',
-                      'title-couch': 'Тренер', 'start-couch': 'Сергей Ефремов'
-                    }"
-                   [title]="'Главные правила продажи'"></app-event>
-        <app-event [selectEvent]="{
-                      'title-date': ' ', 'start-date': 'Дата',
-                      'title-time': ' ', 'start-time': 'Время',
-                      'title-couch': ' ', 'start-couch': 'Тренер'
-                    }"
-                   [title]="'Страхование без потерь'"></app-event>
-        <app-event [selectEvent]="{
-                      'title-date': ' ', 'start-date': 'Дата',
-                      'title-time': ' ', 'start-time': 'Время',
-                      'title-couch': ' ', 'start-couch': 'Тренер'
-                    }"
-                   [title]="'Страховой случай или как помочь клиенту'"></app-event>
-        <h3 class="modal__subtitle">Условия записи по коду</h3>
-        <p class="condition__item">
-          <input class="visually-hidden" id="radio-noCode" type="radio" name="event-condition" value="radio-noCode" checked>
-          <label for="radio-noCode">Не использовать код доступа</label>
-        </p>
-        <p class="condition__item">
-          <input class="visually-hidden" id="radio-register" type="radio" name="event-condition" value="radio-register">
-          <label for="radio-register">Требовать регистрацию</label>
-        </p>
-        <p class="condition__item">
-          <input class="visually-hidden" id="radio-name" type="radio" name="event-condition" value="radio-name">
-          <label for="radio-name">Запросить только имя и фамилию</label>
-        </p>
-        <p class="condition__item">
-          <input class="visually-hidden" id="radio-noName" type="radio" name="event-condition" value="radio-noName">
-          <label for="radio-noName">Не требовать регистрацию, имя и фамилию</label>
-        </p>
+        <div [class.condition--open2]="this.openModalSrv.openOtherTab" class="condition__second members">
+          <div class="members__available">
+            <h3 class="modal__subtitle">Доступные участники</h3>
+            <form class="modal__filter" action="GET">
+              <div class="member__container">
+                <app-search></app-search>
+                <app-select [title]="'Группа'" [start]="'Администрирование'"></app-select>
+                <app-select [title]="'Должность'" [start]="'Менеджер по персон...'"></app-select>
+                <app-select [title]="'Стаж'" [start]="'3 – 10 лет'"></app-select>
+              </div>
+              <div class="members__wrapper">
+                <p class="members__active">42 пользователя</p>
+                <button class="btn btn--blue btn--settings" type="button">Настроить</button>
+                <button class="btn btn--gray btn--discard" type="button">Сбросить</button>
+              </div>
+            </form>
+            <p></p>
+            <ul class="members__list">
+              <li class="members__item">
+                <input class="visually-hidden" id="members__item-all" type="checkbox" name="checked-users">
+                <label for="members__item-all" class="members__name">Все пользователи</label>
+              </li>
+              <li *ngFor="let user of usersList" class="members__item">
+                <input class="visually-hidden" id="members__item-{{user['id-user']}}" type="checkbox" name="checked-users">
+                <label for="members__item-{{user['id-user']}}" class="members__name">{{user['full-name']}}</label>
+              </li>
+            </ul>
+          </div>
+          <div class="members__involved">
+            <h3 class="modal__subtitle">Участники мероприятия</h3>
+            <div class="members__container">
+              <p class="members__description">Наполните группу, перетаскивая участников из списка доступных в левой колонке</p>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </div>

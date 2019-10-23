@@ -72,3 +72,8 @@
     padding-left: 34px;
   }
 }
+
+@media (max-width: 640px) {
+  .select.modal-select__event {
+  }
+}
